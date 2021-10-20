@@ -15,11 +15,14 @@ class WindowActivity : AppCompatActivity() {
         setContentView(R.layout.activity_window)
         val id = intent.getLongExtra(WINDOW_NAME_PARAM, 0)
         //val window = windowService.findById(id)
-        
+
 
         val param = intent.getStringExtra(WINDOW_NAME_PARAM)
+
         val windowName = findViewById<TextView>(R.id.inputUser)
-        windowName.text = param
+        windowName.text = param ?: id.toString()
     }
+
+
 
 }
