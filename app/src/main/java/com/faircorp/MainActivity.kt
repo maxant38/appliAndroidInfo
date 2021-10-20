@@ -14,7 +14,7 @@ class MainActivity : BasicActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    /** Called when the user taps the button
+    /** Called when the user taps the button */
     fun openWindow(view: View) {
         val windowName = findViewById<EditText>(R.id.inputUser).text.toString()
 
@@ -24,7 +24,7 @@ class MainActivity : BasicActivity() {
         }
         startActivity(intent)
     }
-     */
+
 
 
 
