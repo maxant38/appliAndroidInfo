@@ -16,10 +16,21 @@ class WindowActivity : AppCompatActivity() {
         val id = intent.getLongExtra(WINDOW_NAME_PARAM, 0)
 
         val windowService = WindowService()
-        val param = intent.getStringExtra(WINDOW_NAME_PARAM)
-        // val windowName = findViewById<TextView>(R.id.inputUser)
-        // windowName.text = param ?: id.toString()
+
+        val param = intent.getStringExtra(WINDOW_NAME_PARAM)// pour bouton
+        val pa = param?.toLong() ?: 0
+        val windowParam = windowService.findById(pa)
+
         val window = windowService.findById(id)
+
+        if (windowParam != null){
+            findViewById<TextView>(R.id.txt_window_name).text = windowParam.name
+            findViewById<TextView>(R.id.txt_room_name).text = windowParam.room.name
+            findViewById<TextView>(R.id.txt_window_current_temperature).text = windowParam.room.currentTemperature?.toString()
+            findViewById<TextView>(R.id.txt_window_target_temperature).text = windowParam.room.targetTemperature?.toString()
+            findViewById<TextView>(R.id.txt_window_status).text = windowParam.status.toString()
+
+        }
 
         if (window != null) {
             findViewById<TextView>(R.id.txt_window_name).text = window.name
