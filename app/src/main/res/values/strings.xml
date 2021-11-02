@@ -30,5 +30,10 @@
     <string name="act_window_room_target_temp">Target room temperature</string>
     <string name="act_window_room_current_temp">Current room temperature</string>
     <string name="act_window_status">Status</string>
+    <string name="window_name_fix_texte">Window name</string>
+    <string name="room_name_texte">Room</string>
+    <string name="current_room_temperature_texte">Current room temperature</string>
+    <string name="target_room_temperature_texte">Target room temperature</string>
+    <string name="status_texte">Status</string>
 
 </resources>
