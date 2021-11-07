@@ -24,6 +24,9 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
+    <string name="room_name">Room Name</string>
+    <string name="temperacture">Temperature</string>
+    <string name="building_rooms">Building Rooms</string>
 
     <string name="act_window_name">Window name</string>
     <string name="act_window_room">Room</string>

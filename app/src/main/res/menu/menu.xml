@@ -11,6 +11,10 @@
         android:title="@string/menu_email"
         app:showAsAction="never" />
     <item
+        android:id="@+id/menu_rooms"
+        android:title="@string/building_rooms"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_windows"
         android:title="@string/menu_windows"
         app:showAsAction="never" />
