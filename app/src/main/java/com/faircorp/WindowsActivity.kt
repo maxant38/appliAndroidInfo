@@ -2,13 +2,22 @@ package com.faircorp
 import WindowAdapter
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.appbar.AppBarLayout
+import androidx.recyclerview.widget.RecyclerView
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.faircorp.BasicActivity
 import com.faircorp.R
 import com.faircorp.WindowService
+import com.faircorp.model.ApiServices
 import com.faircorp.model.OnWindowSelectedListener
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import androidx.appcompat.app.AppCompatActivity
+
 
 class WindowsActivity : BasicActivity(), OnWindowSelectedListener {
 
@@ -26,7 +35,26 @@ class WindowsActivity : BasicActivity(), OnWindowSelectedListener {
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
 
-        adapter.update(windowService.findAll()) // (4)
+
+        lifecycleScope.launch(context = Dispatchers.IO) { // (1)
+            runCatching { ApiServices().windowsApiService.findAll().execute() } // (2)
+                    .onSuccess {
+                        withContext(context = Dispatchers.Main) { // (3)
+                            adapter.update(it.body() ?: emptyList())
+                        }
+                    }
+                    .onFailure {
+                        withContext(context = Dispatchers.Main) { // (3)
+                            Toast.makeText(
+                                    applicationContext,
+                                    "Error on windows loading $it",
+                                    Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+        }
+
+       // adapter.update(windowService.findAll()) // (4)
     }
     override fun onWindowSelected(id: Long) {
         val intent = Intent(this, WindowActivity::class.java).putExtra(WINDOW_NAME_PARAM, id)
