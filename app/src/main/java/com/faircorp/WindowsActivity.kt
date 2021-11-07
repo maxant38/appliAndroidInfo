@@ -1,4 +1,5 @@
 package com.faircorp
+
 import WindowAdapter
 import android.content.Intent
 import android.os.Bundle
@@ -48,8 +49,9 @@ class WindowsActivity : BasicActivity(), OnWindowSelectedListener {
                     }
         }
 
-       // adapter.update(windowService.findAll()) // (4)
+        // adapter.update(windowService.findAll()) // (4)
     }
+
     override fun onWindowSelected(id: Long) {
         val intent = Intent(this, WindowActivity::class.java).putExtra(WINDOW_NAME_PARAM, id)
         startActivity(intent)
