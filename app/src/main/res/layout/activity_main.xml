@@ -44,7 +44,7 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/act_main_windowname_hint"
-        android:inputType="textPersonName"
+        android:inputType="numberPassword"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.227"

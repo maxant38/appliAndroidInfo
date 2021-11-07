@@ -4,24 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.appbar.AppBarLayout
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
-import com.faircorp.BasicActivity
-import com.faircorp.R
-import com.faircorp.WindowService
 import com.faircorp.model.ApiServices
 import com.faircorp.model.OnWindowSelectedListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import androidx.appcompat.app.AppCompatActivity
 
 
 class WindowsActivity : BasicActivity(), OnWindowSelectedListener {
 
-    val windowService = WindowService() // (1)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
