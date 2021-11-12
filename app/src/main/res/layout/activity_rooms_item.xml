@@ -23,13 +23,11 @@
         android:id="@+id/room_current_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="21dp"
-        android:text="JSP QUOI METTRE"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/window_name"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.045" />
 </androidx.constraintlayout.widget.ConstraintLayout>

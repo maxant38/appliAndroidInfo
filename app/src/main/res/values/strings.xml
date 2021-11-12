@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">Faircorp</string>
     <string name="app_logo_description">Faircorp logo</string>
-    <string name="act_main_windowname_hint">Ligth name</string>
+    <string name="act_main_windowname_hint">Enter window id </string>
     <string name="act_main_welcome">Welcome on faircorp,\n the app to manage building windows</string>
     <string name="content_description">image titre</string>
-    <string name="button">Button</string>
+    <string name="button">Search</string>
     <string name="textview">TextView</string>
     <string name="open_window">Open window</string>
     <string name="window_name">Window name</string>
     <string name="textview_building">Building Windows</string>
 
 
-    <string name="menu_windows">Building windows</string>
+    <string name="menu_windows">Building Windows</string>
     <string name="menu_website">Our website</string>
     <string name="menu_email">Send us an email</string>
     <string name="title_activity_parent">ParentActivity</string>
