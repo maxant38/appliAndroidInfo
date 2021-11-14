@@ -1,5 +1,6 @@
 package com.faircorp.model
 
+//Dto pour les roooms
 
     data class RoomDto(val name: String,
                        val id: Long,

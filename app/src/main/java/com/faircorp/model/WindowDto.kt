@@ -1,6 +1,7 @@
 package com.faircorp.model
 
 
+//Dto pour les windows
 
 enum class Status { OPEN, CLOSED}
 

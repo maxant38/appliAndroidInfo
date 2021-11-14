@@ -14,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+//Activité qui va afficher l'ensemble des windows
 
 class WindowsActivity : BasicActivity(), OnWindowSelectedListener {
 
@@ -30,7 +31,7 @@ class WindowsActivity : BasicActivity(), OnWindowSelectedListener {
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
 
-
+        //Je fais un appel à l'api pour obtenir l'ensemble des windows
         lifecycleScope.launch(context = Dispatchers.IO) { // (1)
             runCatching { ApiServices().windowsApiService.findAll().execute() } // (2)
                     .onSuccess {
@@ -38,6 +39,8 @@ class WindowsActivity : BasicActivity(), OnWindowSelectedListener {
                             adapter.update(it.body() ?: emptyList())
                         }
                     }
+
+                    // Je prends en compte le cas où il y a un problème avec la requête à l'api
                     .onFailure {
                         withContext(context = Dispatchers.Main) { // (3)
                             Toast.makeText(
@@ -49,9 +52,9 @@ class WindowsActivity : BasicActivity(), OnWindowSelectedListener {
                     }
         }
 
-        // adapter.update(windowService.findAll()) // (4)
     }
 
+    // Je définie l'action à réaliser lorsque l'utilisateur clique sur une window
     override fun onWindowSelected(id: Long) {
         val intent = Intent(this, WindowActivity::class.java).putExtra(WINDOW_NAME_PARAM, id)
         startActivity(intent)

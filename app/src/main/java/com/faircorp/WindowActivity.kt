@@ -13,6 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+// Activité qui va afficher l'ensemble des détails d'une room en particulier
 
 class WindowActivity : AppCompatActivity() {
     var windowId = 0L
@@ -23,13 +24,11 @@ class WindowActivity : AppCompatActivity() {
         setContentView(R.layout.activity_window)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-       //val param = intent.getStringExtra(WINDOW_NAME_PARAM)
-        //val windowName = findViewById<TextView>(R.id.txt_window_name)
-        //windowName.text = param
-
+        // Je récupère l'id de la window dont on souhaite avoir plus d'information
         val id = intent.getLongExtra(WINDOW_NAME_PARAM, 0)
         windowId = id
-        // getting windows from api
+
+        // Je fais un appel à l'api pour obtenir les informations sur la window en question
         lifecycleScope.launch(context = Dispatchers.IO) { // (1)
             runCatching { ApiServices().windowsApiService.findById(id).execute(); } // (2)
                     .onSuccess {
@@ -37,6 +36,7 @@ class WindowActivity : AppCompatActivity() {
 
                             val window = it.body();
 
+                            // Si on a des informations au sujet de la window, je les places dans les textviews prévus à cet effet
                             if (window != null) {
                                 findViewById<TextView>(R.id.txt_window_name).text = window.name
                                 findViewById<TextView>(R.id.txt_window_status).text = window.windowStatus.toString()
@@ -61,7 +61,10 @@ class WindowActivity : AppCompatActivity() {
 
     }
 
+    // Je définie la fonction qui sera éxécuter lorsque l'utilisateur appuiera sur le bouton switch
     fun switchStatus(view: View) {
+
+        // Je fais une requête à l'api pour modifier le statut de la window en question
         lifecycleScope.launch(context = Dispatchers.IO) { // (1)
             runCatching { ApiServices().windowsApiService.updateWindow(windowId).execute(); } // (2)
                     .onSuccess {
@@ -69,8 +72,17 @@ class WindowActivity : AppCompatActivity() {
                             finish();
                             startActivity(getIntent());
                         }
-
                     }
+
+                     .onFailure {
+                         withContext(context = Dispatchers.Main) { // (3)
+                             Toast.makeText(
+                                 applicationContext,
+                                 "Error on windows switch statut",
+                                 Toast.LENGTH_LONG
+                             ).show()
+                         }
+                     }
         }
     }
 }

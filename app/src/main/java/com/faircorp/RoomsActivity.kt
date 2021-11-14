@@ -18,7 +18,7 @@ import kotlinx.coroutines.withContext
 
 const val ROOM_NAME_PARAM = "com.faircorp.roomname.attribute"
 
-//Showing room information
+//Activité qui va afficher l'ensemble des rooms
 
 class RoomsActivity : AppCompatActivity(), OnRoomSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +34,7 @@ class RoomsActivity : AppCompatActivity(), OnRoomSelectedListener {
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
 
-        //getting data from api
+        //Je fais un appel à l'api pour obtenir l'ensemble des rooms
         lifecycleScope.launch(context = Dispatchers.IO) { // (1)
             runCatching { ApiServices().roomsApiService.findAll().execute() } // (2)
                     .onSuccess {
@@ -42,6 +42,7 @@ class RoomsActivity : AppCompatActivity(), OnRoomSelectedListener {
                             adapter.update(it.body() ?: emptyList())
                         }
                     }
+                    // Je prends en compte le cas où il y a un problème avec la requête à l'api
                     .onFailure {
                         withContext(context = Dispatchers.Main) { // (3)
                             Toast.makeText(
@@ -55,6 +56,7 @@ class RoomsActivity : AppCompatActivity(), OnRoomSelectedListener {
 
     }
 
+    // Je définie l'action à réaliser lorsque l'utilisateur clique sur une room
     override fun onRoomSelected(id: Long) {
         val intent = Intent(this, RoomActivity::class.java).putExtra(ROOM_NAME_PARAM, id)
         startActivity(intent)

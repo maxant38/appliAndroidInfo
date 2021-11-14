@@ -20,14 +20,13 @@ class RoomAdapter(val listener: OnRoomSelectedListener) :
 
     private val items = mutableListOf<RoomDto>()
 
-    //populate list of windows
     fun update(rooms: List<RoomDto>) {
         items.clear()
         items.addAll(rooms)
         notifyDataSetChanged()
     }
 
-    //size of the list
+
     override fun getItemCount(): Int = items.size // (5)
 
 
