@@ -18,4 +18,7 @@ interface RoomApiService {
 
     @POST
     fun createRoom(@Body room: RoomDto) : Call<RoomDto> //je crée une nouvelle room
+
+    @GET("rooms/{id}/windows")
+    fun findWindowsInARoom(@Path("id") id: Long): Call<List<WindowDto>>
 }

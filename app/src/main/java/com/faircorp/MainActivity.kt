@@ -55,9 +55,6 @@ class MainActivity : BasicActivity() {
 
                                 val imageURL = "https://openweathermap.org/img/w/"+meteoResponse.weather[0].icon+".png"
 
-                                println("aaaaa")
-                                println(imageURL)
-
                                 // Tente de récupérer l'image et de l'afficher dans l'ImageView avec l'aide du handler
                                 try {
                                     val `in` = java.net.URL(imageURL).openStream()

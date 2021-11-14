@@ -93,6 +93,7 @@
         android:id="@+id/check_the_windows"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="checkTheWindows"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
