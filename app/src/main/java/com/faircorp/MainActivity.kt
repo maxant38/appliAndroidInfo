@@ -1,9 +1,14 @@
 package com.faircorp
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
@@ -11,6 +16,7 @@ import com.faircorp.model.ApiServices
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.concurrent.Executors
 
 // activité principale - ecran d'accueil de l'application
 
@@ -33,7 +39,44 @@ class MainActivity : BasicActivity() {
                             findViewById<TextView>(R.id.meteoHumidity).text = meteoResponse.main.humidity.toString()
                             findViewById<TextView>(R.id.meteoMain).text = meteoResponse.weather[0].main
                             findViewById<TextView>(R.id.meteoIcon).text = meteoResponse.weather[0].icon
+
+                            val imageView = findViewById<ImageView>(R.id.imageView)
+
+                            // Déclarer un exécuteur pour analyser l'URL
+                            val executor = Executors.newSingleThreadExecutor()
+
+                            // Une fois que l'exécuteur analyse l'URL et reçoit l'image, le gestionnaire la chargera dans l'imageview
+                            val handler = Handler(Looper.getMainLooper())
+
+                            // Initialisation de l'image
+                            var image: Bitmap? = null
+
+                            executor.execute {
+
+                                val imageURL = "https://openweathermap.org/img/w/"+meteoResponse.weather[0].icon+".png"
+
+                                println("aaaaa")
+                                println(imageURL)
+
+                                // Tente de récupérer l'image et de l'afficher dans l'ImageView avec l'aide du handler
+                                try {
+                                    val `in` = java.net.URL(imageURL).openStream()
+                                    image = BitmapFactory.decodeStream(`in`)
+
+                                    // Seulement pour faire des changements dans l'interface utilisateur
+                                    handler.post {
+                                        imageView.setImageBitmap(image)
+                                    }
+                                }
+
+                                // En cas d'échec
+                                catch (e: Exception) {
+                                    e.printStackTrace()
+                                }
+                            }
+
                         }
+
 
                     }
                 }
