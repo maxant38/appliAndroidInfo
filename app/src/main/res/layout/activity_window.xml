@@ -4,144 +4,177 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorSecondary"
     tools:context=".WindowActivity">
 
+
     <TextView
+        android:fontFamily="sans-serif-black"
         android:id="@+id/txt_window_name"
-        android:layout_width="336dp"
-        android:layout_height="43dp"
+        android:textSize="22sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_window_name_fix"
-        app:layout_constraintVertical_bias="0.024" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
+        android:fontFamily="sans-serif-black"
+        android:textSize="22sp"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/txt_room_name"
-        android:layout_width="329dp"
-        android:layout_height="44dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.378"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.328" />
+        app:layout_constraintVertical_bias="0.284" />
 
     <TextView
+        android:fontFamily="sans-serif-black"
+        android:textSize="22sp"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/txt_window_current_temperature"
-        android:layout_width="341dp"
-        android:layout_height="39dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.455" />
 
     <TextView
+        android:fontFamily="sans-serif-black"
+        android:textSize="22sp"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/txt_window_target_temperature"
-        android:layout_width="340dp"
-        android:layout_height="39dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.671" />
+        app:layout_constraintVertical_bias="0.626" />
 
     <TextView
+        android:gravity="center"
+        android:fontFamily="sans-serif-black"
+        android:textSize="22sp"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/txt_window_status"
-        android:layout_width="314dp"
-        android:layout_height="40dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.309"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81" />
+        app:layout_constraintVertical_bias="0.797" />
 
     <TextView
         android:id="@+id/txt_window_name_fix"
-        android:layout_width="339dp"
-        android:layout_height="40dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textSize="22sp"
         android:text="@string/window_name_fix_texte"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.027" />
 
     <TextView
         android:id="@+id/txt_name_room_fix"
-        android:layout_width="332dp"
-        android:layout_height="39dp"
+        android:textSize="22sp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:text="@string/room_name_texte"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.244" />
+        app:layout_constraintVertical_bias="0.198" />
 
     <TextView
+        android:textSize="22sp"
         android:id="@+id/txt_window_current_temperature_fix"
-        android:layout_width="339dp"
-        android:layout_height="33dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:text="@string/current_room_temperature_texte"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.414" />
+        app:layout_constraintVertical_bias="0.369" />
 
     <TextView
+        android:textSize="22sp"
         android:id="@+id/txt_window_target_temperautre_fix"
-        android:layout_width="341dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:text="@string/target_room_temperature_texte"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59" />
+        app:layout_constraintVertical_bias="0.541" />
 
     <TextView
+        android:textSize="22sp"
         android:id="@+id/txt_window_status_fix"
-        android:layout_width="349dp"
-        android:layout_height="17dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:text="@string/status_texte"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.736" />
+        app:layout_constraintVertical_bias="0.712" />
 
     <Button
+
         android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch"
+        android:layout_width="159dp"
+        android:layout_height="58dp"
+        android:onClick="switchStatus"
+        android:shadowColor="#B15858"
+        android:text="Switch STATUS"
+        android:textColor="#1B0000"
+        android:textColorHighlight="#70AC3131"
+        android:textColorHint="#F12020"
+        android:textColorLink="#931A1A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.371"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="switchStatus"
-        app:layout_constraintVertical_bias="0.89" />
+        app:layout_constraintVertical_bias="0.944" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,6 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.concurrent.Executors
+import kotlin.math.roundToInt
 
 // activité principale - ecran d'accueil de l'application
 
@@ -35,10 +36,14 @@ class MainActivity : BasicActivity() {
                         var meteoResponse = it.body()
 
                         if (meteoResponse != null) {
-                            findViewById<TextView>(R.id.meteoTemperature).text = meteoResponse.main.temp.toString() //je place les informations récupérer dans les différents Textview
-                            findViewById<TextView>(R.id.meteoHumidity).text = meteoResponse.main.humidity.toString()
+
+                            val humidity = "Humidity:  " + meteoResponse.main.humidity.roundToInt().toString() + " %"
+                            val temperature = "Temperature:  "+ (meteoResponse.main.temp - 273.15).roundToInt().toString() + " °C"
+
+                            findViewById<TextView>(R.id.meteoTemperature).text =temperature  //je place les informations récupérer dans les différents Textview
+                            findViewById<TextView>(R.id.meteoHumidity).text = humidity
                             findViewById<TextView>(R.id.meteoMain).text = meteoResponse.weather[0].main
-                            findViewById<TextView>(R.id.meteoIcon).text = meteoResponse.weather[0].icon
+
 
                             val imageView = findViewById<ImageView>(R.id.imageView)
 

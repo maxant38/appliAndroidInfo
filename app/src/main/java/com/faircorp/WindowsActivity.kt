@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.faircorp.model.ApiServices
 import com.faircorp.model.OnWindowSelectedListener
@@ -16,7 +17,7 @@ import kotlinx.coroutines.withContext
 
 //Activité qui va afficher l'ensemble des windows
 
-class WindowsActivity : BasicActivity(), OnWindowSelectedListener {
+class WindowsActivity : AppCompatActivity() , OnWindowSelectedListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

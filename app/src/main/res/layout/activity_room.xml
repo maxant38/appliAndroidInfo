@@ -5,9 +5,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorSecondary"
     tools:context=".RoomActivity">
 
     <TextView
+        android:textSize="22sp"
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,6 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:textSize="22sp"
         android:id="@+id/txt_room_current_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,6 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_room_name" />
 
     <TextView
+        android:fontFamily="sans-serif-black"
         android:id="@+id/txt_room_target_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +45,12 @@
         app:layout_constraintTop_toBottomOf="@+id/room_curent_temp" />
 
     <TextView
+        android:fontFamily="sans-serif-black"
+
         android:id="@+id/txt_room_name"
+        android:textSize="22sp"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -54,6 +63,9 @@
 
     <TextView
         android:id="@+id/room_curent_temp"
+        android:textSize="22sp"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -67,6 +79,9 @@
     <TextView
         android:id="@+id/room_target_temp"
         android:layout_width="wrap_content"
+        android:textSize="22sp"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -81,9 +96,8 @@
         style="@android:style/Widget.DeviceDefault.Light.SeekBar"
         android:layout_width="146dp"
         android:layout_height="63dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="144dp"
         android:max="30"
         android:min="14"
         app:layout_constraintStart_toEndOf="@+id/txt_room_target_temp"
@@ -94,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="checkTheWindows"
-        android:text="Button"
+        android:text="DISPLAY WINDOWS OF THIS ROOM"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
